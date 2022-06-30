@@ -100,7 +100,8 @@ static struct virtual_eth_port *alloc_and_init_device(unsigned int id)
 	struct virtual_eth_port *vport;
 	struct net_device *netdev;
 
-	netdev = alloc_etherdev(sizeof(struct virtual_eth_port));
+	netdev = alloc_netdev_mqs(sizeof(struct virtual_eth_port), "veth%d", NET_NAME_ENUM,
+				ether_setup, 1, 1);
 	if (!netdev) {
 		return NULL;
 	}
