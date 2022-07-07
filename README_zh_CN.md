@@ -3,21 +3,21 @@
 
 # virte
 
-English | [简体中文](./README_zh_CN.md)
+[English](./README.md) | 简体中文
 
-## Introduction
+## 介绍
 
-This is a software-simulated ETH network card device driver. After loading the driver, two devices, veth0 and veth1, will be generated. Different applications can open these two network card devices to communicate with each other (note that the network namespace of linux should be used to isolate the two devices) device so as not to enter the local loop network device).
+这是一个软件模拟的ETH网卡设备驱动，加载驱动后，会产生veth0和veth1两个设备，不同的应用程序分别打开这两个网卡设备可以互相通信(注意要使用linux的网络命名空间隔离两个设备以免进入本地lo网络设备)。
 
-## Install
+## 安装
 
 ```shell
 make
 make load
 ```
-## Config
+## 配置
 
-Use the network namespace to configure two NICs separately, pay attention to replace veth0/veth1 with your NIC name
+使用网络命名空间分别配置两个网卡，注意替换veth0/veth1为你的网卡名称
 
 ```shell
 ip netns add veth0spaces
@@ -29,9 +29,9 @@ ip link set veth1 netns veth1spaces
 ip netns exec veth1spaces ifconfig veth1 192.168.1.101 netmask 255.255.255.0 up
 ```
 
-## Example
+## 示例
 
-The following is an example of a ping packet test:
+以下为ping包测试示例
 
 ```shell
 ip netns exec veth0spaces ifconfig
@@ -40,13 +40,13 @@ ip netns exec veth1spaces ping 192.168.1.100
 ip netns exec veth0spaces ping 192.168.1.101
 ```
 
-## Uninstall
+## 卸载
 
 ```shell
 make unload
 ```
 
-delete network namespace
+删除网络命名空间
 
 ```shell
 ip netns del veth0spaces
