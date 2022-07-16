@@ -1,5 +1,6 @@
 [![CI](https://github.com/QQxiaoming/virte/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/QQxiaoming/virte/actions/workflows/ci.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/qqxiaoming/virte/badge)](https://www.codefactor.io/repository/github/qqxiaoming/virte)
+[![License](https://img.shields.io/github/license/qqxiaoming/virte.svg?colorB=f48041&style=flat-square)](https://github.com/QQxiaoming/virte)
 
 # virte
 
